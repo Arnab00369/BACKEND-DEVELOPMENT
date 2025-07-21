@@ -3,10 +3,14 @@ import express from "express";
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("My Server is Running...");
-});
+//Using static files from frontend to backend
+app.use(express.static('dist'));//using Middlewares
+// app.get("/", (req, res) => {
+//   res.send("My Server is Running...");
+// });
 
+
+//Get a list of 5 jokes
 app.get("/api/jokes", (req, res) => {
   const jokes = [
     {
